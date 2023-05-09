@@ -17,6 +17,8 @@ public class MealArrayAdapter extends TypeAdapter<Meal[]> {
 
 	@Override
 	public Meal[] read(JsonReader in) throws IOException {
-		return new Meal[0];
+		Gson gson = new Gson();
+		return gson.fromJson(in, Meal[].class);
+
 	}
 }
