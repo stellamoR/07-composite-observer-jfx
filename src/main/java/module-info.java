@@ -9,8 +9,9 @@ module ohm.softa.a07 {
 	requires retrofit2.converter.gson;
 	requires okhttp3;
 	requires okhttp3.logging;
+    requires com.google.gson;
 
-	opens ohm.softa.a07 to javafx.fxml;
+    opens ohm.softa.a07 to javafx.fxml;
 	opens ohm.softa.a07.controllers to javafx.fxml;
 	opens ohm.softa.a07.model to gson;
 

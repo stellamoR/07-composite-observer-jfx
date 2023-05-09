@@ -1,5 +1,7 @@
 package ohm.softa.a07.tests;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import ohm.softa.a07.api.OpenMensaAPI;
 import ohm.softa.a07.model.Meal;
 import okhttp3.OkHttpClient;
@@ -20,14 +22,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class OpenMensaAPITests {
 
 	private static final Logger logger = LogManager.getLogger(OpenMensaAPITests.class);
-	private OpenMensaAPI openMensaAPI;
+	private static OpenMensaAPI openMensaAPI;
 
 	@BeforeAll
-	void setup() {
+	static void setup() {
 
 		// use this to intercept all requests and output them to the logging facilities
 		HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
 		loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
 
 		OkHttpClient client = new OkHttpClient.Builder()
 			.addInterceptor(loggingInterceptor)
@@ -43,7 +46,7 @@ class OpenMensaAPITests {
 	}
 
 	@Test
-	void testGetMeals() throws IOException {
+	static void testGetMeals() throws IOException {
 		// TODO prepare call
 
 		// TODO execute the call synchronously
